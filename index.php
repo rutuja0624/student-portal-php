@@ -1,12 +1,12 @@
 <?php
-// Student Portal - Dynamic Version
+// Student Portal - Dynamic Version (Enhanced)
 
 // Sample student data
 $students = [
     ["id" => "101", "name" => "Rutuja", "course" => "Computer Engineering", "attendance" => 90, "email" => "rutuja@example.com"],
-    ["id" => "102", "name" => "Amit", "course" => "Mechanical Engineering", "attendance" => 85, "email" => "amit@example.com"],
-    ["id" => "103", "name" => "Priya", "course" => "Information Technology", "attendance" => 95, "email" => "priya@example.com"],
-    ["id" => "104", "name" => "Rahul", "course" => "Electronics", "attendance" => 70, "email" => "rahul@example.com"]
+    ["id" => "102", "name" => "Asha", "course" => "Mechanical Engineering", "attendance" => 85, "email" => "asha@example.com"],
+    ["id" => "103", "name" => "Aditi", "course" => "Information Technology", "attendance" => 95, "email" => "aditi@example.com"],
+    ["id" => "104", "name" => "Abhishek", "course" => "Electronics", "attendance" => 70, "email" => "abhi@example.com"]
 ];
 
 // Handle search
@@ -22,7 +22,7 @@ if ($search !== '') {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Dynamic Student Portal with Search and Attendance Highlight">
+    <meta name="description" content="Dynamic Student Enrollment and Attendance Portal">
     <title>EduLearn - Student Portal</title>
     <style>
         body {
@@ -36,7 +36,7 @@ if ($search !== '') {
             color:white;
             text-align:center;
             padding:15px 0;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
         }
         nav {
@@ -49,10 +49,10 @@ if ($search !== '') {
             color: #4a90e2;
             font-weight: bold;
         }
-        h1 {
+        h1, h2 {
             text-align: center;
             color: #333;
-            margin-top: 20px;
+            margin-top: 15px;
         }
         .search-box {
             text-align: center;
@@ -65,6 +65,29 @@ if ($search !== '') {
         .search-box button {
             padding: 8px 12px;
             background: #4a90e2;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .enroll-box {
+            text-align: center;
+            margin: 20px 0;
+            background: #fff;
+            padding: 10px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 6px;
+        }
+        .enroll-box input {
+            margin: 5px;
+            padding: 7px;
+        }
+        .enroll-box button {
+            padding: 8px 12px;
+            background: green;
             color: white;
             border: none;
             cursor: pointer;
@@ -102,14 +125,14 @@ if ($search !== '') {
     </style>
 </head>
 <body>
-    <header>Welcome to EduLearn Student Portal</header>
+    <header>EduLearn Student Portal</header>
     <nav>
         <a href="#">Home</a>
         <a href="#">Students</a>
         <a href="#">Attendance</a>
     </nav>
 
-    <h1>📚 Student Details</h1>
+    <h1>📚 Student Enrollment & Attendance Portal</h1>
     <p style="text-align:center;color:#555;">Date: <?php echo date("d M Y, l - h:i A"); ?></p>
 
     <div class="search-box">
@@ -117,6 +140,13 @@ if ($search !== '') {
             <input type="text" name="search" placeholder="Search by name or course" value="<?= htmlspecialchars($search) ?>">
             <button type="submit">Search</button>
         </form>
+    </div>
+
+    <div class="enroll-box">
+        <h3>🔑 New Enrollment (Demo)</h3>
+        <input type="text" placeholder="Enter Student Name" required>
+        <input type="text" placeholder="Enter Course" required>
+        <button type="button" onclick="alert('Demo: Student added successfully (not saved)!')">Add Student</button>
     </div>
 
     <table>
@@ -141,7 +171,7 @@ if ($search !== '') {
                 </tr>
             <?php endforeach; ?>
         <?php else: ?>
-            <tr><td colspan="6">No students found.</td></tr>
+            <tr><td colspan="6">No students found matching your search.</td></tr>
         <?php endif; ?>
     </table>
 
