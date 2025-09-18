@@ -13,7 +13,8 @@ $students = [
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Student Portal</title>
+    <meta name="description" content="Simple Student Portal Demo - Attendance and Course Details">
+    <title>EduLearn - Student Portal</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,14 +22,25 @@ $students = [
             margin: 0;
             padding: 20px;
         }
+        header {
+            background:#4a90e2;
+            color:white;
+            text-align:center;
+            padding:15px 0;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
         h1 {
             text-align: center;
             color: #333;
+            margin-top: 15px;
         }
         table {
             margin: 20px auto;
             border-collapse: collapse;
-            width: 80%;
+            width: 90%;
+            max-width: 800px;
             background: #fff;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
@@ -51,7 +63,9 @@ $students = [
     </style>
 </head>
 <body>
-    <h1>📚 Student Portal</h1>
+    <header>Welcome to EduLearn Student Portal</header>
+    <h1>📚 Student Details</h1>
+    <p style="text-align:center;color:#555;">Date: <?php echo date("d M Y, l"); ?></p>
     <table>
         <tr>
             <th>ID</th>
